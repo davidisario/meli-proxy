@@ -1,0 +1,38 @@
+logging:
+  level:
+    root: INFO
+zuul:
+ # add-proxy-headers: false
+  sensitive-headers: Cookie,Set-Cookie
+  routes:
+    sites:
+      path: /v1/meli/sites/**
+      url: https://api.mercadolibre.com/sites
+    countries:
+      path: /v1/meli/classified_locations/countries/**
+      url: https://api.mercadolibre.com/classified_locations/countries
+    categories:
+      path: /v1/meli/categories/**
+      url: https://api.mercadolibre.com/categories
+    currencies:
+      path: /v1/meli/currencies/**
+      url: https://api.mercadolibre.com/currencies
+    questions:
+      path: /v1/meli/questions/**
+      url: https://api.mercadolibre.com/questions
+    answers:
+      path: /v1/meli/answers/**
+      url: https://api.mercadolibre.com/answers
+  host:
+    connect-timeout-millis: 60000 
+    socket-timeout-millis: 60000
+    max-total-connections: 180
+    max-per-route-connections: 150
+    
+proxy:
+  conf:
+    limit:
+      req-by:
+        ip: 4000
+        tarjet-srv: 4000
+        ip-tarjet-srv: 15

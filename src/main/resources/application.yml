@@ -1,0 +1,33 @@
+server:
+  port : 8081
+logging:
+  level:
+    root: INFO
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/fidena?serverTimezone=GMT-0600
+    username: root
+    password: Karina262321
+    hikari:
+      connection-timeout: 20000
+      minimum-idle: 2
+      maximum-pool-size: 4
+      idle-timeout: 10000
+      max-lifetime: 3000
+      auto-commit: true
+      
+
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://mysql-fidena:3306/fidena
+#    username: fidenaDev
+#    password: fidenaD2021  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+          
